@@ -63,7 +63,7 @@ export class LotService {
   }
 
   async findAll() {
-    return await this.lotModel.find().populate('coupons','courses');
+    return await this.lotModel.find().populate('coupons');
   }
 
   findOne(id: number) {
