@@ -6,7 +6,7 @@ import { User } from 'src/user/entities/user.schema';
 
 export type LotDocument = Lot & Document;
 
-@Schema()
+@Schema({collection:'lot'})
 export class Lot {
   @Prop()
   name: string;
@@ -28,6 +28,9 @@ export class Lot {
 
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: Course.name }] })
   courses: Course[];
+
+  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Coupon' }])
+  coupons: Coupon[];
 
   @Prop({ type:Number})
   availableDay:number;

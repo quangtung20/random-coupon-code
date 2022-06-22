@@ -54,11 +54,16 @@ export class LotService {
       }))
     }
 
-    return lot;
+    const finalCouponArr = await Promise.all(couponArr);
+    console.log(lot._id.toString());
+
+    
+
+    return await this.lotModel.findOneAndUpdate({_id:lot._id.toString()},{coupons:finalCouponArr},{new:true});
   }
 
   async findAll() {
-    return await this.lotModel.find();
+    return await this.lotModel.find().populate('coupons','courses');
   }
 
   findOne(id: number) {

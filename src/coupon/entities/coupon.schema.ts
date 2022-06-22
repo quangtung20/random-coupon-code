@@ -6,7 +6,7 @@ import { User } from 'src/user/entities/user.schema';
 
 export type CouponDocument = Coupon & Document;
 
-@Schema()
+@Schema({collection:'coupon'})
 export class Coupon {
   @Prop({ type:String})
   name: string;
