@@ -29,9 +29,6 @@ export class Lot {
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: Course.name }] })
   courses: Course[];
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'coupons' }] })
-  Coupons: Coupon[];
-
   @Prop({ type:Number})
   availableDay:number;
 }
